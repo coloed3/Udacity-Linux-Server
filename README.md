@@ -47,11 +47,11 @@ Below are the requires for this project.
    1. Chmod 644 authorized_keys
    1. __copy ssh and input that ino tthe authorize_keys using nano authorize_keys__
    __for a full walk through on how ot create your key and use it https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804__
-   ##Disable root 
+   ## Disable root 
    1. Ssh in with grader@xxxxx with password above once login in
    * sudo nano /etc/ssh/sshd_config and change the following permission from yes to No Permitrootlogin once completed type nano service sshd restart -
    * Test login with root user on different shell to verify that the access to root is denied
-   ##Create the apache2 server on digitalocean and modify UFW(fallwall)
+   ## Create the apache2 server on digitalocean and modify UFW(fallwall)
    * __Reference: https://help.ubuntu.com/lts/serverguide/firewall.html.en__
    * sudo apt update
    * sudo apt install apache2  
@@ -77,7 +77,7 @@ Below are the requires for this project.
 ## Deny all other connections
 * We did sudo ufw default deny incoming
 1. __We tested this by using the hello world example for node js. Doing a curl command locally to port 3000 worked. We could not access that port remotely.  __
-##Allow connections on ntp 123
+## Allow connections on ntp 123
 1. sudo ufw allow 123
 2. update && upgrade all packages
 3. sudo apt install update && upgrade
@@ -90,7 +90,7 @@ Below are the requires for this project.
 * sudo apt-get install python3 to install python
 * sudo apt install python3-pip to install pip3
 
-*When pip3 is done install the following packages
+* When pip3 is done install the following packages
 * install the following packages with pip3 install flask, flask-sqlalcahemy, oauth2client
 
 # Creating the wsgi and service that will run Our project
@@ -129,9 +129,9 @@ ProxyPassReverse / http://127.0.0.1:5000/ 4. sudo service apache2 restart to res
 ##Server will be up and running, per the requirements postgres was recommended but i choose to stay with sqlite.
 
 # References:
-1.https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804
-2.https://www.digitalocean.com/community/questions/add-ssh-key-after-creating-a-droplet
-3.https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
-4.https://help.ubuntu.com/lts/serverguide/firewall.html.en\
-5.https://askubuntu.com/questions/919054/how-do-i-run-a-single-command-at-startup-using-systemd
-6.https://stackoverflow.com/questions/30642894/getting-flask-to-use-python3-apache-mod-wsgi
+* https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804
+* https://www.digitalocean.com/community/questions/add-ssh-key-after-creating-a-droplet
+* https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
+* https://help.ubuntu.com/lts/serverguide/firewall.html.en\
+* https://askubuntu.com/questions/919054/how-do-i-run-a-single-command-at-startup-using-systemd
+* https://stackoverflow.com/questions/30642894/getting-flask-to-use-python3-apache-mod-wsgi

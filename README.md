@@ -84,7 +84,7 @@ Below are the requires for this project.
 
 # Setting up flaskapp 
 1. Clone https://github.com/coloed3/Item-catalog-udacity.git into /var/www/python
-* __If you do not have git installed please follow this link https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)__
+* __If you do not have git installed please follow this link https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)__ to install on what ever os you are on. Git is pre-installed on linux
 * Sudo rm catalogsdatabase.db to delete database in repo
 ## Installing the right packages:
 * sudo apt-get install python3 to install python
@@ -92,6 +92,18 @@ Below are the requires for this project.
 
 * When pip3 is done install the following packages
 * install the following packages with pip3 install flask, flask-sqlalcahemy, oauth2client
+
+# Setting up postgres 
+1. Install postgres if using digital ocean on the “create droplet page” select postgres, this will create the following file /etc/apt/sources.list.d/pgdg.list
+* Nano into  /etc/apt/sources.list.d/pgdg.list and paste the following deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main 
+2. Once that is completed sudo apt install postgressql
+3. When postgres is downloaded do the following command sudo su - postgres and type psql to get into the shell.
+ * Then do the following in order:
+ * Create database catalog; 
+ * create user catalog 
+ * alter role name created with password “give password” 
+ * then we will grant the privileges by Grant all privileges on DATABASE catalog to username;
+ 
 
 # Creating the wsgi and service that will run Our project
 1. sudo nano /etc/systemd/system/ItemCatalog.service  and paste the below code inside and  x + ctrl to exit and save 
@@ -125,6 +137,9 @@ WantedBy=multi-user.target
 > ProxyPreserveHost On
  ProxyPass / http://127.0.0.1:5000/
 ProxyPassReverse / http://127.0.0.1:5000/ 4. sudo service apache2 restart to restart apache2 and test server
+
+
+
 
 ##Server will be up and running, per the requirements postgres was recommended but i choose to stay with sqlite.
 
